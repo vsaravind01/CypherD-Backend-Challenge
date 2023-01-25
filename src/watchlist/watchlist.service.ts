@@ -28,4 +28,19 @@ export class WatchlistService {
       throw new NotFoundException('Coin ID not found');
     }
   }
+
+  async deleteToken(id: string, tokens: string[]) {
+    const coin = (await this.db.find(id))[0];
+    console.log(coin);
+    if (coin) {
+      coin.tokens = coin.tokens.filter(function (el) {
+        return tokens.indexOf(el) < 0;
+      });
+      coin.tokens = coin.tokens.filter((v: any, i: any, a: string | any[]) => a.indexOf(v) === i);
+      const result = await this.db.update(coin.name, coin.tokens);
+      return result;
+    } else {
+      throw new NotFoundException('Coin ID not found');
+    }
+  }
 }

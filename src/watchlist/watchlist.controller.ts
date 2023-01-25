@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
 import { WatchlistService } from './watchlist.service';
 import { AddTokenTdo, watchListDto } from './dto/watchlist.dto';
 
@@ -21,5 +21,10 @@ export class WatchlistController {
   @Put('add-token')
   addToken(@Body() dto: AddTokenTdo) {
     return this.watchListService.addToken(dto.id, dto.tokensToBeAdded);
+  }
+
+  @Delete('delete-token')
+  deleteToken(@Body() dto: AddTokenTdo) {
+    return this.watchListService.deleteToken(dto.id, dto.tokensToBeAdded);
   }
 }
