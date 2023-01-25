@@ -56,7 +56,7 @@ export class AggregateService {
         });
       }
     });
-    console.log(result);
+    console.log('Aggregate API triggered | address : ' + address);
     return result;
   }
 }

@@ -4,7 +4,7 @@ import { AggregateService } from './aggregate.service';
 import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports: [HttpModule.register({ timeout: 300222000, maxRedirects: 5 })],
+  imports: [HttpModule.register({ timeout: 30000, maxRedirects: 5 })],
   controllers: [AggregateController],
   providers: [AggregateService],
 })

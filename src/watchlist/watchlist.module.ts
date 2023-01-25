@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { WatchlistController } from './watchlist.controller';
 import { WatchlistService } from './watchlist.service';
-import { HttpModule } from '@nestjs/axios';
+import { SharedModule } from 'src/shared';
 
 @Module({
-  imports: [HttpModule.register({ timeout: 30000000 })],
+  imports: [SharedModule],
   controllers: [WatchlistController],
   providers: [WatchlistService],
 })

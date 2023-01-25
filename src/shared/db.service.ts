@@ -4,7 +4,7 @@ https://docs.nestjs.com/providers#services
 */
 
 import { Injectable } from '@nestjs/common';
-import { uuid } from 'uuidv4';
+import { v4 as uuid } from 'uuid';
 
 @Injectable()
 export class DbService {
