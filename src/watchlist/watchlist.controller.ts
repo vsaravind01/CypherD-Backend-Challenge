@@ -1,6 +1,6 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put } from '@nestjs/common';
 import { WatchlistService } from './watchlist.service';
-import { watchListDto } from './dto/watchlist.dto';
+import { AddTokenTdo, watchListDto } from './dto/watchlist.dto';
 
 @Controller('watchlist')
 export class WatchlistController {
@@ -16,5 +16,10 @@ export class WatchlistController {
   createCoin(@Body() dto: watchListDto) {
     console.log('Create watchlist API triggered');
     return this.watchListService.createCoin(dto.name);
+  }
+
+  @Put('add-token')
+  addToken(@Body() dto: AddTokenTdo) {
+    return this.watchListService.addToken(dto.id, dto.tokensToBeAdded);
   }
 }
